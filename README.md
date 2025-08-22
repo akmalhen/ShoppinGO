@@ -2,7 +2,6 @@
 
 Proyek ini adalah implementasi backend API untuk aplikasi e-commerce sederhana, yang dibuat sebagai bagian dari LnT Camp 2025 oleh BNCC. API ini melayani dua bagian utama aplikasi: halaman landing publik untuk menampilkan produk dan panel admin untuk manajemen data.
 
-**Link Figma Desain:** [Simple E-Commerce API - Figma](https://www.figma.com/design/rAQcJfOYzLMfZR96Fk1StP/Mini-Project-Go?node-id=0-1&p=f)
 
 ---
 
