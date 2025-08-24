@@ -6,17 +6,21 @@ import (
 	"github.com/akmalhen/ecommerce-backend/middlewares" 
 )
 
+
+
 func SetupRoutes(router *gin.Engine) {
 	public := router.Group("/products")
 	{
 		public.GET("/available", handlers.GetAvailableProducts)
 		public.GET("/latest", handlers.GetLatestProducts)
+		public.GET("/:id", handlers.GetProductByID)
 		
 	}
 
 	admin := router.Group("/admin")
 	{
 		admin.POST("/login", handlers.Login)
+		admin.POST("/products/:id/upload", handlers.UploadProductImage)
 		
 		protected := admin.Group("/")
 		protected.Use(middlewares.AuthMiddleware())

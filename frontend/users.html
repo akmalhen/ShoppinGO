@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen User - ShoppinGO</title>
+    <link rel="stylesheet" href="/src/styles/users.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div>
+                <div class="sidebar-header">
+                    <a href="/dashboard.html" class="logo"><img src="/logo.png" alt="Logo"></a>
+                </div>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="/dashboard.html"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+                        <li><a href="/products.html"><i class='bx bxs-package'></i> Manajemen Produk</a></li>
+                        <li class="active"><a href="/users.html"><i class='bx bxs-user-detail'></i> Manajemen User</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <a href="#" id="logout-button"><i class='bx bx-log-out'></i> Logout</a>
+            </div>
+        </aside>
+
+        <div class="main-content-wrapper">
+            <header class="top-bar">
+                <h2 class="page-title">Manajemen User</h2>
+                <div class="admin-profile">
+                    <span class="greeting">Hallo Admin,</span>
+                    <span id="admin-name-display" class="name">...</span>
+                </div>
+            </header>
+            <main class="content-inner">
+                <div class="not-found-container">
+                    <div class="not-found-icon">
+                        <i class='bx bx-code-alt'></i>
+                    </div>
+                    <h1>Fitur Sedang Dikembangkan</h1>
+                    <p>Halaman Manajemen User sedang dalam tahap pengerjaan dan akan segera tersedia. Terima kasih atas kesabaran Anda!</p>
+                    <a href="/dashboard.html" class="back-to-home-btn">Kembali ke Dashboard</a>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('authToken');
+            if (token) {
+                try {
+                    const payload = JSON.parse(atob(token.split('.')[1]));
+                    const adminNameDisplay = document.getElementById('admin-name-display');
+                    if(adminNameDisplay) adminNameDisplay.textContent = payload.name || 'Admin';
+                } catch (e) {
+                    console.error('Gagal parse token:', e);
+                }
+            }
+
+            const logoutButton = document.getElementById('logout-button');
+            if(logoutButton) {
+                logoutButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('authToken');
+                    window.location.href = '/login.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - ShoppinGO</title>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/src/styles/dashboard.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div>
+                <div class="sidebar-header">
+                    <a href="/dashboard.html" class="logo">
+                        <img src="/logo.png" alt="ShoppinGO Logo">
+                    </a>
+                </div>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li class="active"><a href="/dashboard.html"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+                        <li><a href="/products.html"><i class='bx bxs-package'></i> Manajemen Produk</a></li>
+                        <li><a href="/users.html"><i class='bx bxs-user-detail'></i> Manajemen User</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <a href="#" id="logout-button"><i class='bx bx-log-out'></i> Logout</a>
+            </div>
+        </aside>
+        <div class="main-content-wrapper">
+            <header class="top-bar">
+                <h2 class="page-title">Dashboard</h2>
+                <div class="admin-profile">
+                    <div class="admin-info">
+                        <span class="greeting">Hallo Admin,</span>
+                        <span id="admin-name-display" class="name">...</span>
+                    </div>
+                </div>
+            </header>
+            <main class="content-inner">
+                <div id="stats-container" class="stats-grid">
+                </div>
+                <div class="latest-products-table table-container">
+                    <h3>Produk Terbaru</h3>
+                    <table>
+                        <thead>
+                            <tr><th>Produk</th><th>Tanggal Dibuat</th><th>Harga (Rp)</th></tr>
+                        </thead>
+                        <tbody id="latest-products-body"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script type="module" src="/src/pages/admin/dashboard-page.ts"></script>
+</body>
+</html>

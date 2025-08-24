@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #3B82F6;
+  --background-color: #FFFFFF;
+  --text-dark: #212529;
+  --text-light: #6C757D;
+  --border-color: #DEE2E6;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-dark);
+  overflow: hidden; 
+}
+
+.login-page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+/* PANEL KIRI  */
+.login-info-panel {
+  background-color: #000000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-info-content {
+  text-align: center;
+  position: relative;
+  z-index: 4;
+}
+
+.login-info-content h1 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+.login-info-content p {
+  line-height: 1.6;
+  opacity: 0.9;
+  margin: 0.25rem 0;
+}
+
+/* BACKGROUND BINTANG */
+.stars {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-repeat: repeat;
+  background-position: center;
+  animation: move-stars 50s linear infinite;
+  z-index: 1;
+}
+
+@keyframes move-stars {
+  from { background-position-x: 0; }
+  to { background-position-x: 1000px; }
+}
+
+#stars1 {
+  background-image: radial-gradient(1px 1px at 20px 30px, #eee, transparent),
+                    radial-gradient(1px 1px at 40px 80px, #fff, transparent),
+                    radial-gradient(1px 1px at 150px 120px, #ddd, transparent);
+  background-size: 200px 200px;
+  animation-duration: 100s;
+}
+
+#stars2 {
+  background-image: radial-gradient(1.5px 1.5px at 50px 50px, #fff, transparent),
+                    radial-gradient(2px 2px at 100px 150px, #fff, transparent);
+  background-size: 250px 250px;
+  animation-duration: 75s;
+}
+
+#stars3 {
+  background-image: radial-gradient(3px 3px at 10px 90px, #fff, transparent),
+                    radial-gradient(4px 4px at 130px 20px, #fff, transparent);
+  background-size: 300px 300px;
+  animation-duration: 50s;
+}
+
+/* LOGO */
+.logo-track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  animation: fly-horizontal 15s linear infinite;
+  z-index: 2;
+}
+
+@keyframes fly-horizontal {
+  from { transform: translate(-300px, -50%); }
+  to { transform: translate(100vw, -50%); }
+}
+
+.logo-spinner {
+  width: 300px;
+  height: 150px;
+  background-image: url('/gosphere.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: rotate-only 15s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotate-only {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* LOGO TITLE  */
+.logo-container {
+  display: flex;
+  flex-direction: column;   
+  align-items: center;      
+  justify-content: center;  
+  gap: 6px;                
+}
+
+.logo-title {
+  width: 500px;
+  max-width: 80%;
+  height: auto;
+  margin: 0; 
+}
+
+.welcome-text {
+  margin: 0;
+  line-height: 1.4;
+  text-align: center; 
+}
+
+
+.go-highlight {
+  color: #00add8; 
+  font-weight: 700;
+}
+
+/* PANEL KANAN */
+.login-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.login-form-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+}
+
+.login-form-container h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.login-form-container .subtitle {
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+}
+
+#login-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+#login-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+#login-form input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+#login-form input::placeholder {
+  color: #ced4da;
+}
+
+#login-form button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s;
+}
+
+#login-form button:hover {
+  background-color: #2563EB;
+}
+
+.error-text {
+  color: #DC3545;
+  margin-top: 1rem;
+  text-align: center;
+  min-height: 1.2em;
+}
+
+.back-to-home-link {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s;
+}
+
+.back-to-home-link:hover {
+  color: var(--primary-color);
+}

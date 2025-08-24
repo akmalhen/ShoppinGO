@@ -8,4 +8,5 @@ type User struct {
     Email      string `json:"email" gorm:"unique"`
     Password   string `json:"-"` 
     IsActive   bool   `json:"is_active" gorm:"default:true"`
+    Products   []Product `json:"-" gorm:"foreignKey:ResponsibleUserID"`
 }

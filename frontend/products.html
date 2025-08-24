@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Produk - ShoppinGO</title>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div>
+                <div class="sidebar-header">
+                    <a href="/dashboard.html" class="logo"><img src="/logo.png" alt="Logo"></a>
+                </div>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="/dashboard.html"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+                        <li class="active"><a href="/products.html"><i class='bx bxs-package'></i> Manajemen Produk</a></li>
+                        <li><a href="/users.html"><i class='bx bxs-user-detail'></i> Manajemen User</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <a href="#" id="logout-button"><i class='bx bx-log-out'></i> Logout</a>
+            </div>
+        </aside>
+
+        <div class="main-content-wrapper">
+            <header class="top-bar">
+                <h2 class="page-title">Manajemen Produk</h2>
+                <div class="admin-profile">
+                    <div class="admin-info">
+                        <span class="greeting">Hallo Admin,</span>
+                        <span id="admin-name-display" class="name">...</span>
+                    </div>
+                </div>
+            </header>
+            <main class="content-inner">
+                <div class="header-actions">
+                    <button id="export-button" class="action-button">Export Produk</button>
+                    <button id="add-product-button" class="action-button primary">Tambah Produk</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Produk</th>
+                                <th>Harga</th>
+                                <th>Penanggung Jawab</th>
+                                <th>Stok</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-table-body"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal Tambah/Edit Produk -->
+    <div id="product-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2 id="form-title">Tambah Produk</h2>
+                <button id="close-modal-button" class="close-button">&times;</button>
+            </header>
+            <form id="product-form" class="modal-body">
+                <input type="hidden" id="product-id">
+                
+                <div class="form-group">
+                    <label>Foto Produk</label>
+                    <div id="image-preview" class="image-upload-box-figma">
+                        <span class="upload-placeholder">
+                            <i class='bx bx-cloud-upload'></i>
+                            <span>Upload Gambar</span>
+                        </span>
+                        <div class="image-preview-overlay">
+                            <i class='bx bxs-camera-plus'></i>
+                            <span>Ganti Gambar</span>
+                        </div>
+                    </div>
+                    <input type="file" id="image-input" class="hidden" accept="image/*">
+                    <small>Image format .JPG, .JPEG, or .PNG</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" placeholder="Masukkan Nama Produk" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Harga</label>
+                    <div class="input-with-prefix">
+                        <span>Rp</span>
+                        <input type="number" id="price" placeholder="Harga Produk" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="stock">Stok</label>
+                    <input type="number" id="stock" placeholder="Jumlah Stok" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Deskripsi</label>
+                    <textarea id="description" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="user-responsible">Penanggung Jawab</label>
+                    <input type="text" id="user-responsible" disabled>
+                </div>
+
+                <footer class="modal-footer">
+                    <button type="submit" class="save-button primary">SIMPAN</button>
+                </footer>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Detail Produk -->
+    <div id="view-product-modal" class="modal-overlay hidden">
+        <div class="modal-content large">
+            <header class="modal-header">
+                <h2 id="view-product-name">Detail Produk</h2>
+                <button id="close-view-modal-button" class="close-button">&times;</button>
+            </header>
+            <div class="modal-body">
+                <div id="view-product-image" class="view-image"></div>
+                <div class="view-grid">
+                    <div class="view-details">
+                        <p><strong>ID Produk:</strong> <span id="view-product-id"></span></p>
+                        <p><strong>Harga:</strong> <span id="view-product-price"></span></p>
+                        <p><strong>Stok:</strong> <span id="view-product-stock"></span></p>
+                        <hr>
+                        <p><strong>Deskripsi:</strong></p>
+                        <p id="view-product-description"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-container"></div>
+    <script type="module" src="/src/pages/admin/products-page.ts"></script>
+    <script type="module" src="/src/pages/admin/products-page.ts"></script>
+</body>
+</html>

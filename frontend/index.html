@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShoppinGO - Halaman Utama</title>
+    <link rel="stylesheet" href="/src/styles/landing.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div id="app">
+        <header class="navbar">
+            <a href="/" class="logo"><img src="/logo.png" alt="ShoppinGO Logo"></a>
+            <div class="search-bar">
+                <input type="text" placeholder="Cari Produk">
+                <i class='bx bx-search'></i>
+            </div>
+            <a href="/login.html" class="login-button">MASUK</a>
+        </header>            
+        <main class="main-content">
+          <section class="hero-carousel">
+              <div class="swiper">
+                  <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                          <video autoplay muted loop class="hero-video">
+                              <source src="/banner_vid.mp4" type="video/mp4">
+                              Your browser does not support the video tag.
+                      </div>
+
+                      <div class="swiper-slide">
+                          <video autoplay muted loop class="hero-video">
+                              <source src="/promo.mp4" type="video/mp4">
+                              Your browser does not support the video tag.
+                      </div>
+
+                      <div class="swiper-slide">
+                          <video autoplay muted loop class="hero-video">
+                              <source src="/sale.mp4" type="video/mp4">
+                              Your browser does not support the video tag.                
+                      </div>
+                  </div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-pagination"></div>
+              </div>
+          </section>
+
+          <section class="product-section">
+              <div class="section-header">
+                  <h2>Terbaru</h2>
+                  <div class="slider-controls">
+                      <button class="slider-arrow prev"><i class='bx bx-chevron-left'></i></button>
+                      <button class="slider-arrow next"><i class='bx bx-chevron-right'></i></button>
+                  </div>
+              </div>
+              <div id="new-products-slider" class="product-slider">
+              </div>
+          </section>
+
+          <section class="product-section">
+              <div class="section-header">
+                  <h2>Produk Tersedia</h2>
+              </div>
+              <div id="all-products-grid" class="product-grid">
+              </div>
+          </section>
+      </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="/logo.png" alt="ShoppinGO Logo" class="footer-logo">
+                    <p>Shop • Save • Smile.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Layanan</h4>
+                    <a href="#">Bantuan</a>
+                    <a href="#">Tanya Jawab</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Tentang Kami</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Kebijakan Privasi</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Mitra</h4>
+                    <a href="#">Supplier</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div id="modal-container"></div>
+    <script type="module" src="/src/pages/landing/main.ts"></script>
+</body>
+</html>
